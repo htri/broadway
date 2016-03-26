@@ -17,6 +17,7 @@ gem 'better_errors'
 gem 'simple_form', '~>3.1.0'
 gem 'bootstrap-sass', '~> 3.3.4.1'
 gem 'devise', '~> 3.5.6'
+gem 'paperclip', '~> 4.2.1'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
