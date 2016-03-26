@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-	before_action :find_params only: [:new, :create]
+	before_action :find_params, only: [:new, :create]
 
 	def new
 		@review = Review.new

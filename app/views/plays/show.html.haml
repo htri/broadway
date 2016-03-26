@@ -12,6 +12,14 @@
             %p.play-desc
               = @play.description
 
+.row
+  .col-md-12
+    .reviews
+      %h1 Reviews
+      = render @play.reviews
+      = link_to "Add Reviews", new_play_review_path(@play), class: "btn-custom"
+
+
 .link.btn-group
   = link_to "Back", root_path, class: "btn btn-default"
   - if user_signed_in?
