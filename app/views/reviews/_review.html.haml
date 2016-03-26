@@ -1,10 +1,11 @@
 .review
-  = review.rating
-  %p.review_comment
+  .review-rating{"data-score" => review.rating}
+  %p.review-comment
     = review.comment
 
   - if user_signed_in?
     - if review.user_id == current_user.id
-      .links.btn-group
-        = link_to "Edit", edit_play_review_path(review.play, review), class: "btn btn-custom"
-        = link_to "Delete", play_review_path(review.play, review), method: :delete, data: { confirm: "Are you sure" }, class: "btn btn-danger"
+      %p
+        .links.btn-group
+          = link_to "Edit", edit_play_review_path(review.play, review), class: "btn btn-custom"
+          = link_to "Delete", play_review_path(review.play, review), method: :delete, data: { confirm: "Are you sure" }, class: "btn btn-danger"

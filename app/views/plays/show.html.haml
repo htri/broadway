@@ -9,15 +9,18 @@
           = @play.director
           %h4.play-category
             = @play.category.name
-            %p.play-desc
-              = @play.description
+          %h4.avg-rating
+            Average Rating
+          .average-review-rating{"data-score" => @average_review}
+          %p.play-desc
+            = @play.description
 
 .row
   .col-md-12
     .reviews
       %h1 Reviews
       = render @play.reviews
-      = link_to "Add Reviews", new_play_review_path(@play), class: "btn-custom"
+      %p= link_to "Add Reviews", new_play_review_path(@play), class: "btn-custom"
 
 
 .link.btn-group
@@ -26,3 +29,21 @@
     - if @play.user_id == current_user.id
       = link_to "Edit", edit_play_path(@play), class: "btn btn-info"
       = link_to "Delete", play_path(@play), method: :delete, data: { confirm: "Are you sure"}, class: "btn btn-danger"
+
+:javascript
+  $('.review-rating').raty({
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+      },
+      path: '/assets/'
+      });
+
+:javascript
+  $('.average-review-rating').raty({
+    readOnly: true,
+    path: '/assets/',
+    score: function() {
+      return $(this).attr('data-score')
+      }
+      });
