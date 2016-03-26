@@ -1,4 +1,5 @@
 class Play < ActiveRecord::Base
+	has_many :reviews
 	belongs_to :user
 	belongs_to :category	
 	has_attached_file :play_img, :styles => { :play_index => "250x350>", :play_show => "325x475>" }, :default_url => "/images/:style/missing.png"
