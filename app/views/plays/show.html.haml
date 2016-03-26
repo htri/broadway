@@ -1,7 +1,16 @@
-%h2= @play.title
-%h3= @play.director
-%h4= @play.category.name
-%p= @play.description
+.row
+  .col-md-4
+    = image_tag @play.play_img.url(:play_show)
+  .col-md-8
+    .play-info
+      %h1.play-title
+        = @play.title
+        %h3.play-director
+          = @play.director
+          %h4.play-category
+            = @play.category.name
+            %p.play-desc
+              = @play.description
 
 .link.btn-group
   = link_to "Back", root_path, class: "btn btn-default"
